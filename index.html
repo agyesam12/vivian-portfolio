@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sister Vivian Antwi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c5f6f;
+            --secondary: #8b5a3c;
+            --accent: #d4a574;
+            --light: #f8f4f0;
+            --dark: #1a1a1a;
+            --soft-pink: #e8d5c4;
+            --teal: #4a7c8c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 244, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light) 0%, var(--soft-pink) 50%, var(--light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(44, 95, 111, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(44, 95, 111, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(44, 95, 111, 0.4);
+            background: var(--teal);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--accent) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .timeline-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-location {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--soft-pink);
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 5rem 4rem;
+            margin: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .mission-content .section-title {
+            color: white;
+        }
+
+        .mission-content .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .mission-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .mission-highlight {
+            background: rgba(255,255,255,0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--accent) 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .video-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            font-size: 1rem;
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                display: none;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Instructions Box */
+        .instructions-box {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(44, 95, 111, 0.1) 100%);
+            border: 2px dashed var(--accent);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .instructions-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .instructions-text {
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Sister Vivian</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#videos">Videos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Vivian Antwi</h1>
+            <p class="hero-subtitle">Sister Vivian • BSc Nursing Student</p>
+            <p class="hero-tagline">Dedicated to service, education, and making a difference in healthcare and community</p>
+            <a href="#about" class="cta-button">Discover My Journey</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A Journey of Faith, Service & Learning</p>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="about-image-placeholder">
+                    Your Photo Here
+                </div>
+            </div>
+            <div class="about-text">
+                <p>Hello! I'm <strong>Vivian Antwi</strong>, known to many as <strong>Sister Vivian</strong>. I'm currently pursuing my <strong>BSc in Nursing at KAAF University College</strong> in Kasoa, where I'm dedicated to building a career in healthcare and making a meaningful impact in people's lives.</p>
+                
+                <p>My journey has been shaped by a commitment to both education and service. As a devoted member of <strong>The Church of Jesus Christ of Latter-day Saints</strong>, I had the privilege of serving a mission after completing my secondary education, an experience that deepened my faith and taught me invaluable lessons about compassion, dedication, and service to others.</p>
+                
+                <p>Throughout my academic journey, I've not only focused on excellence in my studies but also on bringing joy and creativity to my communities. As the <strong>Entertainment Prefect at Anlo Awomefia Senior High School</strong>, I discovered my passion for bringing people together and creating memorable experiences.</p>
+                
+                <p>I believe in the power of continuous learning, dedicated service, and the importance of uplifting those around us. Welcome to my portfolio – a glimpse into my journey, my passions, and my aspirations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education Journey</h2>
+        <p class="section-subtitle">Building a Foundation for Excellence</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Current</div>
+                    <h3 class="timeline-title">BSc Nursing</h3>
+                    <p class="timeline-location">KAAF University College, Kasoa</p>
+                    <p class="timeline-description">Currently pursuing my Bachelor of Science in Nursing, developing the knowledge and skills to provide compassionate, evidence-based healthcare and make a meaningful difference in patients' lives.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Mission Service</div>
+                    <h3 class="timeline-title">Full-Time Missionary</h3>
+                    <p class="timeline-location">The Church of Jesus Christ of Latter-day Saints</p>
+                    <p class="timeline-description">Dedicated 18 months to full-time missionary service after secondary school, serving communities, teaching principles of faith, and developing leadership, communication, and interpersonal skills.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Senior High School</div>
+                    <h3 class="timeline-title">Anlo Awomefia Senior High School</h3>
+                    <p class="timeline-location">Entertainment Prefect</p>
+                    <p class="timeline-description">Completed my secondary education while serving as Entertainment Prefect, where I organized events, led performances, and fostered a vibrant school culture. This role helped me develop leadership skills and creativity.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Junior High School</div>
+                    <h3 class="timeline-title">Nkurakan DA JHS</h3>
+                    <p class="timeline-location">Eastern Region, Ghana</p>
+                    <p class="timeline-description">Completed my junior high school education, building a strong academic foundation and developing the study habits that would carry me through my educational journey.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <div class="mission-section">
+        <div class="mission-content">
+            <h2 class="section-title">Mission Service</h2>
+            <p class="section-subtitle">A Time of Growth, Service & Faith</p>
+            <p class="mission-text">
+                After completing my secondary education, I embarked on one of the most transformative experiences of my life – serving as a full-time missionary for The Church of Jesus Christ of Latter-day Saints. This period of dedicated service allowed me to grow spiritually, develop leadership skills, and serve communities with love and compassion.
+            </p>
+            <div class="mission-highlight">
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    "The best way to find yourself is to lose yourself in the service of others." My mission taught me the profound truth of this principle. Every day was an opportunity to serve, teach, and uplift others while discovering my own strength and purpose.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Moments & Memories</p>
+        
+        <div class="instructions-box">
+            <h3 class="instructions-title">📸 Gallery Instructions</h3>
+            <p class="instructions-text">
+                To add your images to the gallery, replace the placeholder divs below with your actual images.<br>
+                Use <code>&lt;img src="your-image-path.jpg" alt="Description" style="width: 100%; height: 100%; object-fit: cover;"&gt;</code>
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Mission Photo 1</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Mission Photo 2</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">School Photo 1</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">School Photo 2</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Personal Photo 1</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Personal Photo 2</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Mission Photo 3</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Event Photo 1</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">Event Photo 2</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <h2 class="section-title">Videos</h2>
+        <p class="section-subtitle">Stories in Motion</p>
+        
+        <div class="instructions-box">
+            <h3 class="instructions-title">🎥 Video Instructions</h3>
+            <p class="instructions-text">
+                To add your videos, replace the placeholder divs with your actual video embeds or video elements.<br>
+                For YouTube: <code>&lt;iframe width="100%" height="300" src="your-youtube-embed-url" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code><br>
+                For local videos: <code>&lt;video width="100%" height="300" controls&gt;&lt;source src="your-video.mp4" type="video/mp4"&gt;&lt;/video&gt;</code>
+            </p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-item">
+                <div class="video-placeholder">Video 1 - Mission Experience</div>
+                <div class="video-info">
+                    <h3 class="video-title">Mission Highlights</h3>
+                    <p class="video-description">A glimpse into my missionary service and the communities I had the privilege to serve.</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <div class="video-placeholder">Video 2 - School Events</div>
+                <div class="video-info">
+                    <h3 class="video-title">Entertainment Prefect Moments</h3>
+                    <p class="video-description">Memorable events and performances from my time as Entertainment Prefect at Anlo Awomefia SHS.</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <div class="video-placeholder">Video 3 - Personal Journey</div>
+                <div class="video-info">
+                    <h3 class="video-title">My Journey Story</h3>
+                    <p class="video-description">Reflections on my educational journey and aspirations in nursing.</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <div class="video-placeholder">Video 4 - Additional Content</div>
+                <div class="video-info">
+                    <h3 class="video-title">Special Moments</h3>
+                    <p class="video-description">Additional special moments and memories to share.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2 class="footer-title">Sister Vivian Antwi</h2>
+            <p class="footer-text">BSc Nursing Student | KAAF University College, Kasoa</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Email">✉️</a>
+            </div>
+            <p class="copyright">© 2026 Vivian Antwi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.timeline-item, .gallery-item, .video-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
